@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>GPSGURU - Traccar UI PHP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  background: #edf4f7;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
@@ -65,24 +76,28 @@ span.psw {
   }
 }
 </style>
+
+
 </head>
 <body>
 
-<h2>Login Form</h2>
-
-<form action="/action_page.php">
+<div class="content">
+<form id="loginform" name="loginform" action="loginDo.php" method="post">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  	<h2><font color="#0000FF">GPSGURU - Traccar UI PHP</font></h2>
+    <!--<img src="logo.svg" alt="Traccar UI PHP" class="avatar"> //-->
+    <div class="err" id="add_err"></div>
   </div>
+ 
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" id="username" name="username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" id="password" name="password" required>
         
-    <button type="submit">Login</button>
+    <button id="login" name="login" value="login" type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -90,9 +105,38 @@ span.psw {
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <span class="psw">No account yet? <a href="signup.php">Signup here !</a></span>
   </div>
 </form>
+</div>
 
 </body>
+<script type="application/javascript" src="plugins/jquery/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function() {
+
+    $('#loginform').submit(function() {
+
+        $.ajax({
+            type: "POST",
+            url: 'loginDo.php',
+            data: {
+                username: $("#username").val(),
+                password: $("#password").val()
+            },
+            success: function(data)
+            {
+                if (data === 'true') {
+                    window.location.replace('map.php');
+                }
+                else {
+                    alert(data);
+                }
+            }
+        });
+        return false; 
+    });
+
+});
+</script>
 </html>

@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  background: #edf4f7;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
+
 * {box-sizing: border-box}
 
 /* Full-width input fields */
@@ -71,28 +84,28 @@ button:hover {
   }
 }
 </style>
+</head>
 <body>
 
-<form action="/action_page.php" style="border:1px solid #ccc">
+<div class="content">
+<form action="signupDo.php" action="signupDo.php" method="post" name="signupform" id="signupform" style="border:1px solid #ccc">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-
+	
+    <label for="email"><b>Name</b></label>
+    <input type="text" placeholder="Enter Email or Username" name="name" id="name" required>
+    
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+ 
     
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-    
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    <p>Already have an account? <a href="login.php" style="color:dodgerblue">Login</a>.</p>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
@@ -100,6 +113,38 @@ button:hover {
     </div>
   </div>
 </form>
+</div>
 
 </body>
+<script type="application/javascript" src="plugins/jquery/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function() {
+
+    $('#signupform').submit(function() {
+
+        $.ajax({
+            type: "POST",
+            url: 'signupDo.php',
+            data: {
+                email: $("#email").val(),
+                password: $("#password").val(),
+				name: $("#name").val()
+            },
+            success: function(data)
+            {
+                if (data === 'true') {
+					
+					alert('Successfully Registered, Login Now !');
+                    window.location.replace('login.php');
+                }
+                else {
+                    alert(data);
+                }
+            }
+        });
+        return false; 
+    });
+
+});
+</script>
 </html>
