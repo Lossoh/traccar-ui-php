@@ -1,4 +1,6 @@
-# traccar-ui-php (Traccar Custom UI usage with PHP) : Demo: http://gpsguru.in/demo/traccar-ui-php/
+# traccar-ui-php (Traccar Custom UI usage with PHP)
+
+## Demo: http://gpsguru.in/demo/traccar-ui-php/
 
 A Custom PHP UI using traccar-api-php, using this easy to understand implementation in php. All features provided by Traccar in version 4.3 and later will be supported.
 
