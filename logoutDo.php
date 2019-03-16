@@ -9,7 +9,9 @@ $a = gps::logout($sessionId);
 $response = $a->response;
 $responseCode = $a->responseCode;
 
-if($responseCode == '204'){
+session_destroy();
+
+if($responseCode == '204'){	
 	
 	header("Location: login.php");
 }else{

@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-$sessionId = $_SESSION['sessionId'];
-
-if($sessionId != ''){
+if(!$_SESSION['sessionId']){
 	
-	header("Location: map.php");	
+	header("Location: login.php");	
 }else{
 
-	header("Location: login.php");
+	header("Location: map.php");
 }
 ?>
