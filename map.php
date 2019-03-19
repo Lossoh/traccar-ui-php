@@ -10,6 +10,25 @@ include('traccarApi-1.1.php');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+
+
+#map {
+	height: 470px;
+	position:relative;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+
 * {
   box-sizing: border-box;
 }
@@ -92,7 +111,7 @@ body {
   -ms-flex: 85%; /* IE10 */
   flex: 85%;
   background-color: white;
-  padding: 20px;
+  padding: 0px;
 }
 
 /* Fake image, just for this example */
@@ -149,11 +168,11 @@ body {
   </div>
   
   <div class="main">
-    <h2>Map</h2>
+    <!--<h2>Map</h2> //-->
    
-    <div class="fakeimg" style="height:200px;">Map</div><br>	
-    <div class="fakeimg" style="height:200px;">Graph</div>
-    
+   <div id="map"></div>
+   
+  
   </div>
 </div>
 
@@ -161,5 +180,16 @@ body {
   <h2>Copyright - www.gpsguru.in - 2019</h2>
 </div>
 
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
 </body>
 </html>
