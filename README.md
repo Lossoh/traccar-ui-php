@@ -9,6 +9,8 @@ Any feature required will be added on the basis of reqeusts made. Create a featu
 - Raise a request for the feature in github issues on here.
 - And vote for other requests as well.
 
+Some basic functional features may get added purely on the basis of requests (Without up votes) as well.
+
 Traccar Server & API Version : 4.3 Supported (Currently checked to be working with)
 
 ### Note: For all support and queries regarding this code, raise requests here on GitHub itself. or on www.gpsguru.in 
