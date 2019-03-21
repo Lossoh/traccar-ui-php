@@ -3,9 +3,11 @@
 ## Demo: http://gpsguru.in/demo/traccar-ui-php/
 
 A Custom PHP UI using traccar-api-php, an easy to understand implementation.
-Login, Signup & Logout UI has been implemented, any further features will be added to the code base on request basis (The more vote for a request) the higher the chance for that feature to be implemented on here.
+Login, Signup & Logout UI has been implemented.
+
+Any feature required will be added on the basis of reqeusts made. Create a feature request and get upvotes for the same. (The more vote for a request) the higher the chance for that feature to be implemented on here.
 - Raise a request for the feature in github issues on here.
-- And vote for other requests.
+- And vote for other requests as well.
 
 Traccar Server & API Version : 4.3 Supported (Currently checked to be working with)
 
